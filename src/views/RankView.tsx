@@ -3,6 +3,7 @@ import { BodyText, TypographyH1 } from "../ui/typography/Typography";
 import { ErrorView } from "./ErrorView";
 import LZString from "lz-string";
 import { useMemo } from "react";
+import { Progress } from "../ui/progress";
 
 export function RankView() {
   const [params] = useSearchParams();
@@ -29,6 +30,7 @@ export function RankView() {
     <div className="flex flex-col gap-4 items-center">
       <TypographyH1>Rank</TypographyH1>
       <BodyText>{items}</BodyText>
+      <Progress value={0} />
     </div>
   );
 }
