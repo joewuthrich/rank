@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router";
 import { BodyText, TypographyH1 } from "../ui/typography/Typography";
-import { NotFound } from "../ui/blocks/NotFound";
+import { ErrorView } from "./ErrorView";
 import LZString from "lz-string";
 import { useMemo } from "react";
 
@@ -21,8 +21,8 @@ export function RankView() {
     }
   }, [params]);
 
-  if (items == null) {
-    return <NotFound />;
+  if (items == null || !Array.isArray(items) || items.length === 0) {
+    return <ErrorView />;
   }
 
   return (

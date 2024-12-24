@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router";
-import { Button } from "../../../components/ui/button";
-import { TypographyH1 } from "../typography/Typography";
+import { Button } from "../ui/Button";
+import { TypographyH1 } from "../ui/typography/Typography";
 
-export function NotFound() {
+export function ErrorView() {
   const navigate = useNavigate();
 
   return (

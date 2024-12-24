@@ -1,6 +1,6 @@
-import { Textarea } from "../../../components/ui/textarea";
-import { Button } from "../../../components/ui/button";
-import { Label } from "../../../components/ui/label";
+import { Textarea } from "../Textarea";
+import { Button } from "../Button";
+import { Label } from "../Label";
 import { ArrowRight, Link } from "lucide-react";
 import { ChangeEvent, useState } from "react";
 import LZString from "lz-string";
