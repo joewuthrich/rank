@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 
 export function BodyText({ children }: PropsWithChildren) {
-  return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
+  return <p className="leading-7">{children}</p>;
 }
 
 export function TypographyH1({ children }: PropsWithChildren) {
