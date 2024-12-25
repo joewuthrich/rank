@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "../Button";
 import { useNavigate } from "react-router";
 import LZString from "lz-string";
-import { TypographyH1 } from "../typography/Typography";
+import { TypographyH1, TypographyScaled } from "../typography/Typography";
+import { Textfit } from "react-textfitfix";
 
 export function PairwiseSorter({
   initialItems,
@@ -88,11 +89,11 @@ export function PairwiseSorter({
     <div className="flex flex-row gap-2 items-stretch w-full h-[230px]">
       {comparing ? (
         <>
-          <Button className="flex-1 h-full" onClick={handleSmaller}>
-            <TypographyH1>{sortedArray[mid]}</TypographyH1>
+          <Button className="w-[246px] h-full" onClick={handleSmaller}>
+            <TypographyScaled>{sortedArray[mid]}</TypographyScaled>
           </Button>
-          <Button className="flex-1 h-full" onClick={handleLarger}>
-            <TypographyH1>{sortedArray[index]}</TypographyH1>
+          <Button className="w-[246px] h-full" onClick={handleLarger}>
+            <TypographyScaled>{sortedArray[index]}</TypographyScaled>
           </Button>
         </>
       ) : (
