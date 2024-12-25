@@ -48,7 +48,7 @@ export function ListInput() {
       return;
     }
 
-    copyToClipboard(`${window.location.origin}/rank?list=${compressed}`);
+    copyToClipboard(`${window.location.origin}/#/rank?list=${compressed}`);
   };
 
   return (
