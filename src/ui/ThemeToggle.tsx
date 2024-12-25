@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import { BookHeart, Moon, Sun } from "lucide-react";
 
 import { Button } from "./Button";
 import { useTheme } from "../providers/ThemeProvider";
@@ -9,10 +9,18 @@ export function ThemeToggle() {
   return (
     <Button
       variant="ghost"
-      onClick={() => setTheme(theme == "light" ? "dark" : "light")}
+      onClick={(e) => {
+        if (e.ctrlKey) {
+          setTheme("pink");
+          return;
+        }
+
+        setTheme(theme == "light" ? "dark" : "light");
+      }}
     >
       {theme == "light" && <Sun />}
       {theme == "dark" && <Moon />}
+      {theme == "pink" && <BookHeart />}
     </Button>
   );
 }
