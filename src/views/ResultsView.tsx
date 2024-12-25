@@ -6,10 +6,16 @@ import { ErrorView } from "./ErrorView";
 import { Button } from "../ui/Button";
 import { ArrowRight, Link } from "lucide-react";
 import { copyToClipboard } from "../lib/copyToClipboard";
+import { InnerPageLayout } from "../ui/layouts/InnerPageLayout";
+import Confetti from "react-confetti";
+import useWindowSize from "../lib/useWindowSize";
 
 export function ResultsView() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
+  const { width, height } = useWindowSize();
+
+  const self = !!params.get("self");
 
   const items = useMemo(() => {
     const list = params.get("list");
@@ -38,14 +44,25 @@ export function ResultsView() {
   };
 
   return (
-    <>
+    <InnerPageLayout>
+      {self && (
+        <Confetti
+          width={width}
+          height={height}
+          recycle={false}
+          colors={["#FFA500", "#FFC0CB"]}
+        />
+      )}
       <TypographyH1>Results</TypographyH1>
       <BodyText>{items.join(", ")}</BodyText>
       <div className="flex flex-row gap-2 justify-stretch relative">
         <Button
           className="flex-1"
           variant={"outline"}
-          onClick={() => copyToClipboard(window.location.href)}
+          onClick={() => {
+            const url = window.location.href.split("&self")[0];
+            copyToClipboard(url);
+          }}
         >
           <Link /> Share List
         </Button>
@@ -53,6 +70,6 @@ export function ResultsView() {
           <ArrowRight /> Rank Again
         </Button>
       </div>
-    </>
+    </InnerPageLayout>
   );
 }

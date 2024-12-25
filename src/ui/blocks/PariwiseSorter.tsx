@@ -81,7 +81,7 @@ export function PairwiseSorter({
       JSON.stringify(sortedArray)
     );
 
-    navigate(`/results?list=${compressed}`);
+    navigate(`/results?list=${compressed}&self=true`);
   };
 
   return (

@@ -4,6 +4,7 @@ import LZString from "lz-string";
 import { useMemo, useState } from "react";
 import { Progress } from "../ui/Progress";
 import { PairwiseSorter } from "../ui/blocks/PariwiseSorter";
+import { InnerPageLayout } from "../ui/layouts/InnerPageLayout";
 
 export function RankView() {
   const [params] = useSearchParams();
@@ -34,13 +35,15 @@ export function RankView() {
   };
 
   return (
-    <div className="flex flex-col gap-4 items-center">
-      <PairwiseSorter
-        initialItems={shuffleArray(items)}
-        updateProgress={updateProgress}
-      />
-      <Progress value={progress} />
-    </div>
+    <InnerPageLayout>
+      <div className="flex flex-col gap-4 items-center">
+        <PairwiseSorter
+          initialItems={shuffleArray(items)}
+          updateProgress={updateProgress}
+        />
+        <Progress value={progress} />
+      </div>
+    </InnerPageLayout>
   );
 }
 
