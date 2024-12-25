@@ -1,12 +1,14 @@
 import { useSearchParams } from "react-router";
-import { BodyText, TypographyH1 } from "../ui/typography/Typography";
+import { TypographyH1 } from "../ui/typography/Typography";
 import { ErrorView } from "./ErrorView";
 import LZString from "lz-string";
-import { useMemo } from "react";
-import { Progress } from "../ui/progress";
+import { useMemo, useState } from "react";
+import { Progress } from "../ui/Progress";
+import { PairwiseSorter } from "../ui/blocks/PariwiseSorter";
 
 export function RankView() {
   const [params] = useSearchParams();
+  const [progress, setProgress] = useState<number>(0);
 
   const items = useMemo(() => {
     const list = params.get("list");
@@ -26,11 +28,16 @@ export function RankView() {
     return <ErrorView />;
   }
 
+  const updateProgress = ({ sortedCount }: { sortedCount: number }) => {
+    const newPercentage = (sortedCount / items.length) * 100;
+
+    setProgress(newPercentage);
+  };
+
   return (
     <div className="flex flex-col gap-4 items-center">
-      <TypographyH1>Rank</TypographyH1>
-      <BodyText>{items}</BodyText>
-      <Progress value={0} />
+      <PairwiseSorter initialItems={items} updateProgress={updateProgress} />
+      <Progress value={progress} />
     </div>
   );
 }

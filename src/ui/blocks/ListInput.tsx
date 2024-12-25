@@ -36,7 +36,7 @@ export function ListInput() {
   };
 
   return (
-    <div className="grid gap-2 w-[500px]">
+    <div className="grid gap-2">
       <Label htmlFor="input">
         Enter a list of items separated by new lines
       </Label>
