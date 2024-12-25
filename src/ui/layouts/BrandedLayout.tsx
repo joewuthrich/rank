@@ -9,7 +9,7 @@ export function BrandedLayout({ children }: PropsWithChildren) {
         <Avatar />
         <ThemeToggle />
       </div>
-      <div className="w-[500px]">{children}</div>
+      <div className="w-[300px] sm:w-[500px]">{children}</div>
     </div>
   );
 }

@@ -62,7 +62,7 @@ export function ListInput() {
         className="h-64 resize-none"
         onChange={handleChange}
       />
-      <div className="flex flex-row gap-2 justify-stretch relative">
+      <div className="flex flex-col sm:flex-row gap-2 justify-stretch relative">
         <Button className="flex-1" variant={"outline"} onClick={copyLink}>
           <Link /> Share List
         </Button>

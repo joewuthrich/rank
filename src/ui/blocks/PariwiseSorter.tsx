@@ -85,13 +85,19 @@ export function PairwiseSorter({
   };
 
   return (
-    <div className="flex flex-row gap-2 items-stretch w-full h-[230px]">
+    <div className="flex flex-col sm:flex-row gap-2 items-stretch w-full">
       {comparing ? (
         <>
-          <Button className="w-[246px] h-full" onClick={handleSmaller}>
+          <Button
+            className="w-[300px] h-[300px] sm:w-[246px] sm:h-[246px]"
+            onClick={handleSmaller}
+          >
             <TypographyScaled>{sortedArray[mid]}</TypographyScaled>
           </Button>
-          <Button className="w-[246px] h-full" onClick={handleLarger}>
+          <Button
+            className="w-[300px] h-[300px] sm:w-[246px] sm:h-[246px]"
+            onClick={handleLarger}
+          >
             <TypographyScaled>{sortedArray[index]}</TypographyScaled>
           </Button>
         </>
