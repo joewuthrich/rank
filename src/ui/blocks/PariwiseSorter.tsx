@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "../Button";
 import { useNavigate } from "react-router";
 import LZString from "lz-string";
-import { TypographyH1, TypographyScaled } from "../typography/Typography";
-import { Textfit } from "react-textfitfix";
+import { TypographyScaled } from "../typography/Typography";
 
 export function PairwiseSorter({
   initialItems,
