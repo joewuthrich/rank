@@ -1,12 +1,13 @@
 import { Textarea } from "../Textarea";
 import { Button } from "../Button";
 import { Label } from "../Label";
-import { AlertCircle, ArrowRight, Link } from "lucide-react";
+import { AlertCircle, ArrowRight, Link, X } from "lucide-react";
 import { ChangeEvent, useState } from "react";
 import LZString from "lz-string";
 import { useNavigate } from "react-router";
 import { BodyText } from "../typography/Typography";
 import { copyToClipboard } from "../../lib/copyToClipboard";
+import { toast } from "sonner";
 
 export function ListInput() {
   const [text, setText] = useState("");
@@ -19,6 +20,16 @@ export function ListInput() {
   };
 
   const startChoosing = () => {
+    const compressed = getCompressedList();
+
+    if (compressed.length < 1) {
+      return;
+    }
+
+    navigate(`/rank?list=${compressed}`);
+  };
+
+  const getCompressedList = () => {
     const splitText = text
       .split("\n")
       .map((item) => item.trim())
@@ -26,14 +37,19 @@ export function ListInput() {
 
     if (splitText.length < 2) {
       setError(true);
+      return "";
+    }
+
+    return LZString.compressToEncodedURIComponent(JSON.stringify(splitText));
+  };
+
+  const copyLink = () => {
+    const compressed = getCompressedList();
+    if (compressed.length < 1) {
       return;
     }
 
-    const compressed = LZString.compressToEncodedURIComponent(
-      JSON.stringify(splitText)
-    );
-
-    navigate(`/rank?list=${compressed}`);
+    copyToClipboard(`${window.location.origin}/rank?list=${compressed}`);
   };
 
   return (
@@ -48,11 +64,7 @@ export function ListInput() {
         onChange={handleChange}
       />
       <div className="flex flex-row gap-2 justify-stretch relative">
-        <Button
-          className="flex-1"
-          variant={"outline"}
-          onClick={() => copyToClipboard(window.location.href)}
-        >
+        <Button className="flex-1" variant={"outline"} onClick={copyLink}>
           <Link /> Share List
         </Button>
         <Button className="flex-1" onClick={startChoosing}>
