@@ -1,6 +1,10 @@
 import { PropsWithChildren } from "react";
 import { Textfit } from "react-textfitfix";
 
+export function SmallText({ children }: PropsWithChildren) {
+  return <small className="text-sm font-medium leading-none">{children}</small>;
+}
+
 export function BodyText({ children }: PropsWithChildren) {
   return <p className="leading-7">{children}</p>;
 }
