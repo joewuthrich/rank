@@ -1,5 +1,4 @@
 import { useSearchParams } from "react-router";
-import { TypographyH1 } from "../ui/typography/Typography";
 import { ErrorView } from "./ErrorView";
 import LZString from "lz-string";
 import { useMemo, useState } from "react";
@@ -36,8 +35,20 @@ export function RankView() {
 
   return (
     <div className="flex flex-col gap-4 items-center">
-      <PairwiseSorter initialItems={items} updateProgress={updateProgress} />
+      <PairwiseSorter
+        initialItems={shuffleArray(items)}
+        updateProgress={updateProgress}
+      />
       <Progress value={progress} />
     </div>
   );
+}
+
+function shuffleArray(array: string[]) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
 }

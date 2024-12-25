@@ -32,6 +32,8 @@ export function PairwiseSorter({
     setRight(index - 1);
     setMid(Math.floor((0 + (index - 1)) / 2));
     setComparing(true);
+
+    updateProgress({ sortedCount: index });
   }, [index, sortedArray]);
 
   const handleSmaller = () => {
