@@ -1,13 +1,12 @@
 import { Textarea } from "../Textarea";
 import { Button } from "../Button";
 import { Label } from "../Label";
-import { AlertCircle, ArrowRight, Link, X } from "lucide-react";
+import { AlertCircle, ArrowRight, Link } from "lucide-react";
 import { ChangeEvent, useState } from "react";
 import LZString from "lz-string";
 import { useNavigate } from "react-router";
 import { BodyText } from "../typography/Typography";
 import { copyToClipboard } from "../../lib/copyToClipboard";
-import { toast } from "sonner";
 
 export function ListInput() {
   const [text, setText] = useState("");
