@@ -63,24 +63,24 @@
 }
 
 .pink {
-  --background: 301 44% 93%;
+  --background: 301 90% 95%;
   --foreground: 301 5% 10%;
   --card: 301 44% 90%;
   --card-foreground: 301 5% 15%;
   --popover: 301 44% 95%;
   --popover-foreground: 301 95% 10%;
   --primary: 301 100% 90%;
-  --primary-foreground: 0 0% 0%;
+  --primary-foreground: 301 5% 10%;
   --secondary: 301 30% 70%;
   --secondary-foreground: 0 0% 0%;
-  --muted: 263 30% 85%;
+  --muted: 301 50% 87%;
   --muted-foreground: 301 5% 35%;
-  --accent: 263 30% 80%;
+  --accent: 301 50% 87%;
   --accent-foreground: 301 5% 15%;
   --destructive: 0 50% 30%;
   --destructive-foreground: 301 5% 90%;
-  --border: 301 70% 80%;
-  --input: 301 70% 80%;
+  --border: 301 80% 90%;
+  --input: 301 80% 90%;
   --ring: 301 100% 90%;
   --radius: 0.5rem;
 }
