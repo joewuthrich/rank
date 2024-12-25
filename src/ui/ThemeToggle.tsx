@@ -28,6 +28,7 @@ export function ThemeToggle() {
   );
 }
 
+// Taken from http://detectmobilebrowsers.com/
 function checkMobileOrTablet() {
   let check = false;
   (function (a) {
@@ -40,6 +41,7 @@ function checkMobileOrTablet() {
       )
     )
       check = true;
+    // @ts-expect-error this function comes from somewhere else
   })(navigator.userAgent || navigator.vendor || window.opera);
   return check;
 }
