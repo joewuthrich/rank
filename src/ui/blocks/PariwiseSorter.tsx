@@ -91,12 +91,14 @@ export function PairwiseSorter({
           <Button
             className="w-[300px] h-[300px] sm:w-[246px] sm:h-[246px]"
             onClick={handleSmaller}
+            textSize={"other"}
           >
             <TypographyScaled>{sortedArray[mid]}</TypographyScaled>
           </Button>
           <Button
             className="w-[300px] h-[300px] sm:w-[246px] sm:h-[246px]"
             onClick={handleLarger}
+            textSize={"other"}
           >
             <TypographyScaled>{sortedArray[index]}</TypographyScaled>
           </Button>
