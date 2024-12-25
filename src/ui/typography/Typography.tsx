@@ -17,7 +17,7 @@ export function TypographyScaled({ children }: PropsWithChildren) {
   return (
     <Textfit
       mode="multi"
-      className="h-full w-full flex items-center justify-center whitespace-pre-wrap"
+      className="h-full w-full flex items-center justify-center whitespace-pre-wrap font-bold"
     >
       {children}
     </Textfit>

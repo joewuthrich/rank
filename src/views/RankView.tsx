@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { Progress } from "../ui/Progress";
 import { PairwiseSorter } from "../ui/blocks/PariwiseSorter";
 import { InnerPageLayout } from "../ui/layouts/InnerPageLayout";
+import { TypographyH1 } from "../ui/typography/Typography";
 
 export function RankView() {
   const [params] = useSearchParams();
@@ -37,6 +38,7 @@ export function RankView() {
   return (
     <InnerPageLayout>
       <div className="flex flex-col gap-4 items-center">
+        <TypographyH1>Pick Your Favorite</TypographyH1>
         <PairwiseSorter
           initialItems={shuffleArray(items)}
           updateProgress={updateProgress}
