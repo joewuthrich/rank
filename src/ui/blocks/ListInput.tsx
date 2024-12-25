@@ -6,6 +6,7 @@ import { ChangeEvent, useState } from "react";
 import LZString from "lz-string";
 import { useNavigate } from "react-router";
 import { BodyText } from "../typography/Typography";
+import { copyToClipboard } from "../../lib/copyToClipboard";
 
 export function ListInput() {
   const [text, setText] = useState("");
@@ -47,7 +48,11 @@ export function ListInput() {
         onChange={handleChange}
       />
       <div className="flex flex-row gap-2 justify-stretch relative">
-        <Button className="flex-1" variant={"outline"}>
+        <Button
+          className="flex-1"
+          variant={"outline"}
+          onClick={() => copyToClipboard(window.location.href)}
+        >
           <Link /> Share List
         </Button>
         <Button className="flex-1" onClick={startChoosing}>
